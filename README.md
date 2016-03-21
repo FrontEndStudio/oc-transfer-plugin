@@ -30,7 +30,7 @@ CMSMS News -> RainLab Blog
       'collation' => 'utf8_unicode_ci',
       'prefix'    => '',
     ]
-    ```
+```
 
 ## Commands
 
@@ -39,12 +39,13 @@ CMSMS News -> RainLab Blog
 ```
 php artisan transfer:cmsms-data --help
 ```
+
 *! the limit parameter is not yet implemented*
 
 # transfer all data
 
 ```
-php artisan transfer:cmsms-data 
+php artisan transfer:cmsms-data
 ```
 
 # transfer news articles
@@ -62,6 +63,6 @@ php artisan transfer:cmsms-data --type=category
 
 ## Dependencies
 
-To convert WYSIWYG (html) data to markdown, the [html-to-markdown](https://github.com/thephpleague/html-to-markdown) libary is used. 
+To convert WYSIWYG (html) data to markdown, the [html-to-markdown](https://github.com/thephpleague/html-to-markdown) libary is used.
 
 
