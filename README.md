@@ -54,7 +54,7 @@ php artisan transfer:cmsms-data
 php artisan transfer:cmsms-data --type=news
 ```
 
-# transfer news articles
+# transfer news categories
 
 ```
 php artisan transfer:cmsms-data --type=category
