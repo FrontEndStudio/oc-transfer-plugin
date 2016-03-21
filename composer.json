@@ -1,0 +1,15 @@
+{
+    "name": "fes/transfer",
+    "description": "Plugin to transfer CMS Made Simple (CMSMS) data to October CMS",
+    "homepage": "http://octobercms.com",
+    "keywords": ["october", "cms", "fes", "cmsms"],
+    "authors": [
+        {
+            "name": "Arnoud van Susteren",
+            "email": "arnoud@frontendstudio.com"
+        }
+    ],
+    "require": {
+      "league/html-to-markdown": "*"
+    }
+}
