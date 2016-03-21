@@ -6,10 +6,6 @@ use Illuminate\Support\Facades\DB;
 use League\HTMLToMarkdown\HtmlConverter;
 use Rainlab\Blog\Models\Post as OctoberBlogPost;
 
-/**
- * Abstract class for importing/exporting cmsms data to and from laravel models
- */
-
 class News extends Base
 {
 
