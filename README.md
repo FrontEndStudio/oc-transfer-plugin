@@ -10,6 +10,58 @@ This plugin contains some artisan commands to transfer data from the CMS Made Si
 
 CMSMS News -> RainLab Blog
 
-## Documentation
+## How to use
 
-@todo work in progress
+- Under your October CMS plugins directory create a directory called: fes/transfer
+- Checkout this repository
+- Run: ~ composer install
+
+- Under: config/database.php add a new database configuration named 'cmsms'. This database contains CMS Made Simple data be sure to have read access from the location your run this plugin.
+
+```
+    'cmsms' => [
+      'driver'    => 'mysql',
+      'host'      => '',
+      'port'      => 3306,
+      'database'  => '',
+      'username'  => '',
+      'password'  => '',
+      'charset'   => 'utf8',
+      'collation' => 'utf8_unicode_ci',
+      'prefix'    => '',
+    ]
+    ```
+
+## Commands
+
+# list available parameters
+
+```
+php artisan transfer:cmsms-data --help
+```
+*! the limit parameter is not yet implemented*
+
+# transfer all data
+
+```
+php artisan transfer:cmsms-data 
+```
+
+# transfer news articles
+
+```
+php artisan transfer:cmsms-data --type=news
+```
+
+# transfer news articles
+
+```
+php artisan transfer:cmsms-data --type=category
+```
+
+
+## Dependencies
+
+To convert WYSIWYG (html) data to markdown, the [html-to-markdown](https://github.com/thephpleague/html-to-markdown) libary is used. 
+
+
