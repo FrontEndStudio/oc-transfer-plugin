@@ -4,12 +4,8 @@ use Backend;
 use System\Classes\PluginBase;
 
 use Illuminate\Support\Facades\Event;
-//use System\Classes\PluginBase;
 use DB;
 use Log;
-
-// use Config;
-// use Illuminate\Foundation\AliasLoader;
 
 /**
 * Transfer Plugin Information File
