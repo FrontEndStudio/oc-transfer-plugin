@@ -8,7 +8,7 @@ This plugin contains some artisan commands to transfer data from the CMS Made Si
 
 ## Implemented are:
 
-CMSMS News -> RainLab Blog
+CMSMS News -> RainLab Blog \\
 CMSMS Gallery -> Fes Album
 
 ## How to use
