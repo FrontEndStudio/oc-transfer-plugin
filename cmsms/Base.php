@@ -4,6 +4,7 @@ namespace Fes\Transfer\Cmsms;
 
 use Illuminate\Support\Facades\DB;
 use League\HTMLToMarkdown\HtmlConverter;
+use File;
 
 /**
  * Abstract class for importing/exporting cmsms data to and from laravel models
@@ -137,5 +138,48 @@ class Base
     public function epochToTimestamp($val)
     {
         return date('Y-m-d H:i:s', $val);
+    }
+
+    /**
+    * Generate hashed folder name from filename
+    *
+    * @param  string
+    * @return array
+    */
+    public static function generateHashedFolderName($filename)
+    {
+        $folderName[] = substr($filename, 0, 3);
+        $folderName[] = substr($filename, 3, 3);
+        $folderName[] = substr($filename, 6, 3);
+        return $folderName;
+    }
+
+    /**
+     *  @param string
+     *  @return obj
+     */
+    public function getFileInfo($fileOrg)
+    {
+
+        $file = new \stdClass();
+
+        if (File::exists($fileOrg)) {
+            $range          = '0123456789abcdefghijklmnopqrstuvwxyz';
+            $rangeRandom    = substr(str_shuffle(str_repeat($range, 40)), 0, 40);
+
+            $file->org     = $fileOrg;
+            $file->name     = File::name($fileOrg);
+            $file->ext      = File::extension($fileOrg);
+            $file->size     = File::size($fileOrg);
+            $file->get      = File::get($fileOrg);
+            $file->mime     = File::mimeType($fileOrg);
+            $file->size     = File::size($fileOrg);
+            $file->hash     = md5($file->name. '!'. $rangeRandom);
+            $file->disk     = $file->hash.'.'.$file->ext;
+
+        }
+
+        return $file;
+
     }
 }

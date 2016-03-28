@@ -9,6 +9,7 @@ This plugin contains some artisan commands to transfer data from the CMS Made Si
 ## Implemented are:
 
 CMSMS News -> RainLab Blog
+CMSMS Gallery -> Fes Album
 
 ## How to use
 
@@ -48,18 +49,13 @@ php artisan transfer:cmsms-data --help
 php artisan transfer:cmsms-data
 ```
 
-# transfer news articles
+# transfer by type
 
 ```
 php artisan transfer:cmsms-data --type=news
-```
-
-# transfer news categories
-
-```
 php artisan transfer:cmsms-data --type=news-category
+php artisan transfer:cmsms-data --type=gallery
 ```
-
 
 ## Dependencies
 
