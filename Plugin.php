@@ -28,10 +28,11 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Transfer',
-            'description' => 'No description provided yet...',
-            'author'      => 'Fes',
-            'icon'        => 'icon-leaf'
+            'name'          => 'Transfer',
+            'description'   => 'Migrate data from CMS Made Simple into October CMS',
+            'author'        => 'FrontendStudio',
+            'icon'          => 'icon-leaf',
+            'homepage'      => 'https://github.com/FrontEndStudio/oc-transfer-plugin'
         ];
     }
 

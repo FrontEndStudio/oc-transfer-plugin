@@ -9,6 +9,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
 use Fes\Transfer\Cmsms\Base as Base;
+use Fes\Transfer\Cmsms\Gallery as CmsmsGallery;
 use Fes\Transfer\Cmsms\News as CmsmsNews;
 use Fes\Transfer\Cmsms\NewsCategory as CmsmsNewsCategory;
 
@@ -70,6 +71,9 @@ class TransferCmsmsDataCommand extends Command
             case 'news':
                 $this->transferNews();
                 break;
+            case 'gallery':
+                $this->transferGallery();
+                break;
             case 'news-category':
                 $this->transferNewsCategory();
                 break;
@@ -79,6 +83,16 @@ class TransferCmsmsDataCommand extends Command
         }
 
         $this->info('Transfer complete');
+    }
+
+    /**
+     * Transfer cmsms gallery with laravel
+     * @return int
+     */
+    protected function transferGallery()
+    {
+        $gallery = new CmsmsGallery;
+        $this->transfer($gallery, 'gallery');
     }
 
     /**

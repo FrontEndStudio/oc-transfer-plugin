@@ -62,7 +62,6 @@ class Gallery extends Base
             ->where('t1.title', '!=', '')
             ->where('t1.filename', '!=', '')
             ->orderBy('filename', 'ASC')
-            ->take(2)
             ->get();
 
         foreach ($galleries as $item) {
