@@ -10,8 +10,10 @@ use Symfony\Component\Console\Input\InputArgument;
 
 use Fes\Transfer\Cmsms\Base as Base;
 use Fes\Transfer\Cmsms\Gallery as CmsmsGallery;
-use Fes\Transfer\Cmsms\News as CmsmsNews;
 use Fes\Transfer\Cmsms\NewsCategory as CmsmsNewsCategory;
+use Fes\Transfer\Cmsms\News as CmsmsNews;
+use Fes\Transfer\Cmsms\AankondigingenCategory as CmsmsAankondigingenCategory;
+use Fes\Transfer\Cmsms\Aankondigingen as CmsmsAankondigingen;
 
 /**
  * Transfer the data from cmsms into october
@@ -68,14 +70,20 @@ class TransferCmsmsDataCommand extends Command
         $this->limit = $this->option('limit');
 
         switch ($type) {
-            case 'news':
-                $this->transferNews();
-                break;
             case 'gallery':
                 $this->transferGallery();
                 break;
             case 'news-category':
                 $this->transferNewsCategory();
+                break;
+            case 'news':
+                $this->transferNews();
+                break;
+            case 'aankondigingen-category':
+                $this->transferAankondigingenCategory();
+                break;
+            case 'aankondigingen':
+                $this->transferAankondigingen();
                 break;
             default:
                 $this->transferNewsCategory();
@@ -96,6 +104,16 @@ class TransferCmsmsDataCommand extends Command
     }
 
     /**
+     * Transfer cmsms news category with laravel
+     * @return int
+     */
+    protected function transferNewsCategory()
+    {
+        $category = new CmsmsNewsCategory;
+        $this->transfer($category, 'news-category');
+    }
+
+    /**
      * Transfer cmsms news with laravel
      * @return int
      */
@@ -106,13 +124,23 @@ class TransferCmsmsDataCommand extends Command
     }
 
     /**
-     * Transfer cmsms news with laravel
+     * Transfer cmsms aankondigingen category with laravel
      * @return int
      */
-    protected function transferNewsCategory()
+    protected function transferAankondigingenCategory()
     {
-        $category = new CmsmsNewsCategory;
-        $this->transfer($category, 'news-category');
+        $category = new CmsmsAankondigingenCategory;
+        $this->transfer($category, 'aankondigingen-category');
+    }
+
+    /**
+     * Transfer cmsms aankondigingen with laravel
+     * @return int
+     */
+    protected function transferAankondigingen()
+    {
+        $aankondigingen = new CmsmsAankondigingen;
+        $this->transfer($aankondigingen, 'aankondigingen');
     }
 
     protected function transfer($model, $textType)

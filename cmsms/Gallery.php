@@ -104,11 +104,14 @@ class Gallery extends Base
             }
 
             if ($model->forceSave()) {
-                $sort_order++;
-                $count++;
 
                 // fetch Gallery files from cmsms
                 $files = $this->getGalleryFiles($gallery_id);
+
+                if (count($files) >= 1) {
+                    $sort_order++;
+                    $count++;
+                }
 
                 foreach ($files as $file) {
                     $filepath = str_replace("/", "", $file->filepath);

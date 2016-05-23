@@ -8,8 +8,9 @@ This plugin contains some artisan commands to transfer data from the CMS Made Si
 
 ## Implemented are:
 
-CMSMS News -> RainLab Blog  
 CMSMS Gallery -> Fes Album
+CMSMS News -> RainLab Blog
+CMSMS ListIt2 Aankondigingen -> Fes Notice
 
 ## How to use
 
@@ -52,13 +53,13 @@ php artisan transfer:cmsms-data
 # transfer by type
 
 ```
-php artisan transfer:cmsms-data --type=news
-php artisan transfer:cmsms-data --type=news-category
 php artisan transfer:cmsms-data --type=gallery
+php artisan transfer:cmsms-data --type=news-category
+php artisan transfer:cmsms-data --type=news
+php artisan transfer:cmsms-data --type=aankondigingen-category
+php artisan transfer:cmsms-data --type=aankondigingen
 ```
 
 ## Dependencies
 
 To convert WYSIWYG (html) data to markdown, the [html-to-markdown](https://github.com/thephpleague/html-to-markdown) libary is used.
-
-
