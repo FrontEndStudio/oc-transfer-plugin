@@ -86,7 +86,7 @@ class Aankondigingen extends Base
         $sections = array(
             'kalender' => 'calendar',
             'nieuws' => 'news',
-            'link' => 'link',
+            'link' => 'news',
             'downloads' => 'download'
         );
 
@@ -158,8 +158,16 @@ class Aankondigingen extends Base
                             if ($this->schema[$key] == 'image') {
                                 $fileType->field = 'image';
                                 $fileType->attachment_type = 'Fes\Notice\Models\Record';
+
+                                $mediaNew = './storage/app/media/aankondigingen/'. $fileType->file_name;
+                                $mediaModelNew = '/aankondigingen/'. $fileType->file_name;
+
+                                if (File::copy($fileOrg, $mediaNew)) {
+                                    $model->media = $mediaModelNew;
+                                }
+
                             } else {
-                                $fileType->field = 'file';
+                                $fileType->field = 'files';
                                 $fileType->attachment_type = 'Fes\Notice\Models\Record';
                             }
 

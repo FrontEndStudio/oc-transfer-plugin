@@ -50,6 +50,21 @@ class AankondigingenCategory extends Base
             $count++;
         }
 
+            $nest++;
+            $count++;
+
+            $in = new OctoberNoticeCategory;
+            $in->id = $count + 1;
+            $in->name = 'Algemeen';
+            $in->slug = str_replace(" ", "-", strtolower($in->name));
+            $in->nest_left = $nest;
+            $nest++;
+            $in->nest_right = $nest;
+            $in->nest_depth = 0;
+            $in->save();
+
+
+
         return $count;
     }
 }
